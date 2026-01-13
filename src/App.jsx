@@ -1,10 +1,10 @@
 // src/App.jsx - NO useState, Pure Route-based
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Dashboard';
-import AdminPanel from './pages/AdminPanel';
+import Login from './pages/login.jsx';
+import Signup from './pages/signup.jsx';
+import Dashboard from './pages/dashboard.jsx';
+import AdminPanel from './pages/adminPanel.jsx';
 
 function App() {
   return (
