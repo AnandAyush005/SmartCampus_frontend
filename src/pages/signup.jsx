@@ -74,13 +74,13 @@ const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-gradient-to-br from-emerald-50 to-blue-50">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-linear-to-br from-emerald-50 to-blue-50">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
+          <div className="w-20 h-20 bg-linear-to-r from-emerald-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-2xl">
             <User className="w-10 h-10 text-white" />
           </div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-emerald-700 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl font-bold bg-linear-to-r from-gray-900 to-emerald-700 bg-clip-text text-transparent mb-2">
             Student Registration
           </h1>
           <p className="text-gray-600">Join SmartCampus Hub</p>
@@ -90,7 +90,7 @@ const Signup = () => {
           <div className="space-y-6">
             {/* AVATAR - REQUIRED BY CONTROLLER */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2 flex items-center">
+              <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center">
                 <Image className="w-4 h-4 mr-2" />
                 Profile Picture <span className="text-red-500">*</span>
               </label>
@@ -218,7 +218,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white font-semibold py-4 px-6 rounded-2xl hover:from-emerald-700 hover:to-green-700 focus:ring-4 focus:ring-emerald-500/50 shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center space-x-2 group"
+              className="w-full bg-linear-to-r from-emerald-600 to-green-600 text-white font-semibold py-4 px-6 rounded-2xl hover:from-emerald-700 hover:to-green-700 focus:ring-4 focus:ring-emerald-500/50 shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center space-x-2 group"
             >
               {loading ? (
                 <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
