@@ -1,7 +1,7 @@
 // src/components/ProtectedRoute.jsx
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import LoadingSpinner from './LoadingSpinner';
+import { useAuth } from '../contexts/AuthContext.jsx';
+import LoadingSpinner from './dashboard/LoadingSpinner.jsx';
 
 export default function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -17,7 +17,7 @@ export default function ProtectedRoute({ children }) {
 
   // If no user, redirect to login BUT save intended destination
   if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/" state={{ from: location }} replace />;
   }
 
   return children;

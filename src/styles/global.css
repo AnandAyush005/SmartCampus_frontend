@@ -1,0 +1,32 @@
+/* Global styles for consistent black borders and good contrast */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure all inputs have black borders by default */
+input, textarea, select {
+  @apply border-2 border-black;
+}
+
+input:focus, textarea:focus, select:focus {
+  @apply outline-2 outline-black ring-2 ring-black;
+}
+
+/* Ensure buttons have black borders */
+button {
+  @apply border-2 border-black;
+}
+
+/* Ensure cards have black borders */
+.card, [class*="rounded"] {
+  @apply border-2 border-black;
+}
+
+/* High contrast text */
+.text-black {
+  color: #000000 !important;
+}
+
+.text-gray-900 {
+  color: #1a1a1a !important;
+}

@@ -12,39 +12,53 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetchDashboardData();
-  }, []);
+  const [noticeCount, setNoticeCount] = useState(0);
 
-  const fetchDashboardData = async () => {
-    try {
-      setLoading(true);
-      
-      // ✅ YOUR BACKEND: getCurrentUser → /users/me
-      try {
-        const userRes = await axios.get(`${import.meta.env.VITE_API_URL}/users/me`, {
-          withCredentials: true
-        });
-        setUser(userRes.data.user || userRes.data.data);
-      } catch (error) {
-        console.log('User API failed, using mock');
-        setUser({ fullName: 'John Doe', role: 'student' });
-      }
 
-      // ✅ YOUR BACKEND: getMyIssues → /issues/my-issues  
-      try {
-        const issuesRes = await axios.get(`${import.meta.env.VITE_API_URL}/issues/my-issues`, {
-          withCredentials: true
-        });
-        setIssues(issuesRes.data.issues || issuesRes.data.data || []);
-      } catch (error) {
-        console.log('Issues API failed');
-        setIssues([]);
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
+const fetchDashboardData = async () => {
+  try {
+    // ✅ Real notice count from YOUR backend
+    const noticesRes = await axios.get(`${import.meta.env.VITE_API_URL}/notices?limit=1`, {
+      withCredentials: true
+    });
+    setNoticeCount(noticesRes.data?.length || 0);
+  } catch {
+    setNoticeCount(5); // fallback
+  }
+};
+
+    useEffect(() => {
+    const loadDashboard = async () => {
+        try {
+        const [userRes, issuesRes, noticesRes] = await Promise.all([
+            axios.get(`${import.meta.env.VITE_API_URL}/users/me`, {
+            withCredentials: true
+            }),
+            axios.get(`${import.meta.env.VITE_API_URL}/issues/my`, {
+            withCredentials: true
+            }),
+            axios.get(`${import.meta.env.VITE_API_URL}/notices`, {
+            withCredentials: true
+            })
+        ]);
+
+        setUser(userRes.data?.user);
+        setIssues(issuesRes.data?.data || []);
+        setNoticeCount(noticesRes.data?.data?.length || 0);
+
+        } catch (err) {
+        console.error('Dashboard load failed', err);
+        } finally {
+        setLoading(false);
+        }
+    };
+
+    loadDashboard();
+    }, []);
+
+
+
+
 
   // ✅ NAVIGATION FUNCTIONS - Backend ready routes
   const goToNotices = () => navigate('/notices');
@@ -80,12 +94,12 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-blue-50">
+    <div className="min-h-screen bg-linear-to-br from-emerald-50 to-blue-50">
       <Navbar user={user} onLogout={handleLogout} />
       
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-emerald-600 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-gray-900 to-emerald-600 bg-clip-text text-transparent mb-4">
             Welcome, {user?.fullName || 'User'}!
           </h1>
           <p className="text-xl text-gray-600">Role: <span className="font-semibold capitalize">{user?.role}</span></p>
@@ -95,7 +109,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
           <StatsCard 
             icon="home" 
-            count={5} // Later: connect to Notice.countDocuments()
+            count={noticeCount}  // Later: connect to Notice.countDocuments()
             label="New Notices"
             onClick={goToNotices}
           />

@@ -86,13 +86,13 @@ const Signup = () => {
           <p className="text-gray-600">Join SmartCampus Hub</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/50">
+        <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-2xl border-2 border-black">
           <div className="space-y-6">
             {/* AVATAR - REQUIRED BY CONTROLLER */}
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-2 flex items-center">
-                <Image className="w-4 h-4 mr-2" />
-                Profile Picture <span className="text-red-500">*</span>
+              <label className="text-sm font-semibold text-black mb-2 flex items-center">
+                <Image className="w-4 h-4 mr-2 text-black" />
+                Profile Picture <span className="text-red-600">*</span>
               </label>
               <div className="space-y-3">
                 <input
@@ -101,10 +101,10 @@ const Signup = () => {
                   onChange={handleImageChange}
                   accept="image/*"
                   required
-                  className="w-full p-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100"
+                  className="w-full p-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-2 file:border-black file:text-sm file:font-semibold file:bg-white file:text-black hover:file:bg-gray-100"
                 />
                 {avatarPreview && (
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-emerald-200 mx-auto">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-black mx-auto">
                     <img src={avatarPreview} alt="Preview" className="w-full h-full object-cover" />
                   </div>
                 )}
@@ -113,15 +113,15 @@ const Signup = () => {
 
             {/* fullName */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+              <label className="block text-sm font-semibold text-black mb-2">Full Name</label>
               <div className="relative">
-                <User className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <User className="w-5 h-5 text-black absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
                   required
-                  className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full pl-11 pr-4 py-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black"
                   placeholder="John Doe"
                 />
               </div>
@@ -129,16 +129,16 @@ const Signup = () => {
 
             {/* email */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+              <label className="block text-sm font-semibold text-black mb-2">Email</label>
               <div className="relative">
-                <Mail className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Mail className="w-5 h-5 text-black absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   type="email"
                   required
-                  className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full pl-11 pr-4 py-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black"
                   placeholder="student@college.edu"
                 />
               </div>
@@ -146,15 +146,15 @@ const Signup = () => {
 
             {/* registrationNumber */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Registration Number</label>
+              <label className="block text-sm font-semibold text-black mb-2">Registration Number</label>
               <div className="relative">
-                <User className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <User className="w-5 h-5 text-black absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   name="registrationNumber"
                   value={formData.registrationNumber}
                   onChange={handleChange}
                   required
-                  className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full pl-11 pr-4 py-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black"
                   placeholder="CS2023001"
                 />
               </div>
@@ -162,16 +162,16 @@ const Signup = () => {
 
             {/* mobile */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Mobile</label>
+              <label className="block text-sm font-semibold text-black mb-2">Mobile</label>
               <div className="relative">
-                <Phone className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Phone className="w-5 h-5 text-black absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   name="mobile"
                   value={formData.mobile}
                   onChange={handleChange}
                   type="tel"
                   required
-                  className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full pl-11 pr-4 py-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black"
                   placeholder="9876543210"
                 />
               </div>
@@ -179,15 +179,15 @@ const Signup = () => {
 
             {/* role */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Role</label>
+              <label className="block text-sm font-semibold text-black mb-2">Role</label>
               <div className="relative">
-                <User className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <User className="w-5 h-5 text-black absolute left-3 top-1/2 -translate-y-1/2" />
                 <select
                   name="role"
                   value={formData.role}
                   onChange={handleChange}
                   required
-                  className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 focus:border-transparent appearance-none"
+                  className="w-full pl-11 pr-4 py-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black appearance-none"
                 >
                   <option value="">Select Role</option>
                   <option value="student">Student</option>
@@ -198,9 +198,9 @@ const Signup = () => {
 
             {/* password */}
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+              <label className="block text-sm font-semibold text-black mb-2">Password</label>
               <div className="relative">
-                <Lock className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Lock className="w-5 h-5 text-black absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   name="password"
                   value={formData.password}
@@ -208,7 +208,7 @@ const Signup = () => {
                   type="password"
                   required
                   minLength={6}
-                  className="w-full pl-11 pr-4 py-3 border border-gray-200 rounded-2xl bg-gray-50/50 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                  className="w-full pl-11 pr-4 py-3 border-2 border-black rounded-2xl bg-white text-black focus:outline-2 focus:outline-black focus:ring-2 focus:ring-black"
                   placeholder="••••••••"
                 />
               </div>
@@ -218,7 +218,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-linear-to-r from-emerald-600 to-green-600 text-white font-semibold py-4 px-6 rounded-2xl hover:from-emerald-700 hover:to-green-700 focus:ring-4 focus:ring-emerald-500/50 shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center space-x-2 group"
+              className="w-full bg-emerald-600 text-white font-semibold py-4 px-6 rounded-2xl hover:bg-emerald-700 border-2 border-black disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center space-x-2 group"
             >
               {loading ? (
                 <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -231,10 +231,10 @@ const Signup = () => {
             </button>
           </div>
 
-          <div className="mt-6 pt-6 border-t border-gray-100 text-center">
-            <p className="text-sm text-gray-600">
+          <div className="mt-6 pt-6 border-t-2 border-black text-center">
+            <p className="text-sm text-black">
               Already have an account?{' '}
-              <a href="/" className="font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">
+              <a href="/" className="font-semibold text-blue-600 hover:text-blue-700 transition-colors underline">
                 Sign in
               </a>
             </p>
